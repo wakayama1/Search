@@ -63,3 +63,5 @@ gem 'carrierwave' , '~> 1.3' ,  '>= 1.3.1'
 gem 'cloudinary'
 
 gem 'dotenv-rails'
+
+gem 'sqlite3'
