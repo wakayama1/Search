@@ -1,0 +1,21 @@
+databases:
+  - name: search_gifts_DB
+    databaseName: search_gifts_db
+    user: Search Gifts
+    region: singapore
+
+services:
+  - type: web
+    name: Search Gifts
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: search_gifts_DB
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
